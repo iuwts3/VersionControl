@@ -57,12 +57,11 @@ namespace UserMaintenance
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex != -1)
-            {
-                listBox1.Items.RemoveAt(listBox1.SelectedIndex);
-            }
-            /*string torlendo = listBox1.SelectedItem.ToString();
-            listBox1.Items.Remove(torlendo);*/
+            /*int dID = Convert.ToInt32(listBox1.SelectedValue);
+            var od = from x in users
+                     where x.ID == (dID)
+                     select x;
+            users.Remove(od.FirstOrDefault());*/
         }
     }
 }
