@@ -65,6 +65,13 @@ namespace ExcelGenerate
                 values[counter, 2] = f.Side;
                 values[counter, 3] = f.District;
                 values[counter, 4] = f.Elevator;
+
+                if (f.Elevator == true)
+                {
+                    values[counter, 4] = "Van";
+                }
+                else values[counter, 4] = "Nincs";
+
                 values[counter, 5] = f.NumberOfRooms;
                 values[counter, 6] = f.FloorArea;
                 values[counter, 7] = f.Price;
@@ -76,6 +83,7 @@ namespace ExcelGenerate
             xlSheet.get_Range(
              GetCell(2, 1),
              GetCell(1 + values.GetLength(0), values.GetLength(1))).Value2 = values;
+
 
             Excel.Range headerRange = xlSheet.get_Range(GetCell(1, 1), GetCell(1, headers.Length));
             headerRange.Font.Bold = true;
@@ -94,10 +102,12 @@ namespace ExcelGenerate
             firstColummnRange.Font.Bold = true;
             firstColummnRange.Interior.Color = Color.LightYellow;
 
-            int lastRowID = xlSheet.UsedRange.Rows.Count;
-            Excel.Range lastColummnRange = xlSheet.get_Range(GetCell(2, lastRowID), GetCell(values.Length, lastRowID));
-            //utolsó oszlop formázásai --- még nem jó
+            int lastColumnID = xlSheet.UsedRange.Columns.Count;
+            Excel.Range lastColummnRange = xlSheet.get_Range(GetCell(2, lastColumnID), GetCell(values.Length, lastColumnID));
+            //utolsó oszlop formázásai
             lastColummnRange.Interior.Color = Color.LightGreen;
+            lastColummnRange.Value2 = "=(H2/G2)*1000000";
+            lastColummnRange.NumberFormat = "##0.00";
         }
 
         private string GetCell(int x, int y)
