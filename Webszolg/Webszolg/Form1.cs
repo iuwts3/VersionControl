@@ -17,9 +17,11 @@ namespace Webszolg
     public partial class Form1 : Form
     {
         BindingList<RateData> Rates = new BindingList<RateData>();
+        BindingList<string> Currencies = new BindingList<string>();
         public Form1()
         {
             InitializeComponent();
+            //var currency_req = new GetCurrenciesRequestBody()
 
             RefreshData();
         }
@@ -38,6 +40,7 @@ namespace Webszolg
             var result = response.GetExchangeRatesResult;
 
             dataGridView1.DataSource = Rates;
+            //comboBox1.DataSource = Currencies;
 
             processingXml(result);
             CreateDiagram();
