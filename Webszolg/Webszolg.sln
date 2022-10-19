@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webszolg", "Webszolg\Webszolg.csproj", "{77E634FB-0739-41F5-9D63-C4136CC1691A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77E634FB-0739-41F5-9D63-C4136CC1691A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77E634FB-0739-41F5-9D63-C4136CC1691A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77E634FB-0739-41F5-9D63-C4136CC1691A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77E634FB-0739-41F5-9D63-C4136CC1691A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7B1DFC4F-8130-4E2D-BEC5-D5CA1360F8CE}
+	EndGlobalSection
+EndGlobal
