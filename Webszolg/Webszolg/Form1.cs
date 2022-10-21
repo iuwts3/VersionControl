@@ -21,9 +21,26 @@ namespace Webszolg
         public Form1()
         {
             InitializeComponent();
-            //var currency_req = new GetCurrenciesRequestBody()
-
+            var mnbService = new MNBArfolyamServiceSoapClient();
+            var currency_req = new GetCurrenciesRequestBody();
+            var response = mnbService.GetCurrencies(currency_req);
+            var result2 = response.GetCurrenciesResult;
+            xmlfeldolg(result2);
             RefreshData();
+        }
+
+        private void xmlfeldolg(string result2)
+        {
+            var xml = new XmlDocument();
+            xml.LoadXml(result2);
+
+            foreach (XmlElement element in xml.DocumentElement.ChildNodes[0])
+            {
+                var currency = element.InnerText;
+                
+                Currencies.Add(currency);
+
+            }
         }
 
         private void RefreshData()
@@ -40,7 +57,7 @@ namespace Webszolg
             var result = response.GetExchangeRatesResult;
 
             dataGridView1.DataSource = Rates;
-            //comboBox1.DataSource = Currencies;
+            comboBox1.DataSource = Currencies;
 
             processingXml(result);
             CreateDiagram();
@@ -78,6 +95,8 @@ namespace Webszolg
                 rate.Date = DateTime.Parse(element.GetAttribute("date"));
 
                 var childElement = (XmlElement)element.ChildNodes[0];
+                if (childElement == null)
+                    continue;
                 rate.Currency = childElement.GetAttribute("curr");
 
                 var unit = decimal.Parse(childElement.GetAttribute("unit"));
