@@ -35,6 +35,7 @@
             this.btnCar = new System.Windows.Forms.Button();
             this.btnBall = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnColor = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // mainPanel
@@ -70,7 +71,7 @@
             // 
             // btnBall
             // 
-            this.btnBall.Location = new System.Drawing.Point(204, 257);
+            this.btnBall.Location = new System.Drawing.Point(205, 258);
             this.btnBall.Name = "btnBall";
             this.btnBall.Size = new System.Drawing.Size(75, 23);
             this.btnBall.TabIndex = 2;
@@ -81,17 +82,28 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(369, 258);
+            this.label1.Location = new System.Drawing.Point(540, 257);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "Coming next:";
+            // 
+            // btnColor
+            // 
+            this.btnColor.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnColor.Location = new System.Drawing.Point(384, 258);
+            this.btnColor.Name = "btnColor";
+            this.btnColor.Size = new System.Drawing.Size(75, 23);
+            this.btnColor.TabIndex = 4;
+            this.btnColor.UseVisualStyleBackColor = false;
+            this.btnColor.Click += new System.EventHandler(this.btnColor_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1110, 464);
+            this.Controls.Add(this.btnColor);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBall);
             this.Controls.Add(this.btnCar);
@@ -111,6 +123,7 @@
         private System.Windows.Forms.Button btnCar;
         private System.Windows.Forms.Button btnBall;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnColor;
     }
 }
 
