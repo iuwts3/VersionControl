@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace _06_gyak.Entities
 {
-    internal class Ball : Label
+    public class Ball : Label
     {
         public Ball()
         {
@@ -18,7 +18,7 @@ namespace _06_gyak.Entities
             Paint += Ball_Paint;
         }
 
-        private void MoveBall()
+        public void MoveBall()
         {
             Left += 1;
         }
