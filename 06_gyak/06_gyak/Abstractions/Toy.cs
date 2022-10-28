@@ -18,7 +18,7 @@ namespace _06_gyak.Abstractions
             Paint += Toy_Paint;
         }
 
-        public void MoveBall()
+        public void MoveToy()
         {
             Left += 1;
         }
