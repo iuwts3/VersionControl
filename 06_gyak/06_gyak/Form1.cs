@@ -75,7 +75,10 @@ namespace _06_gyak
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Factory = new BallFactory();
+            Factory = new BallFactory
+            {
+                BallColor = btnColor.BackColor
+            };
         }
 
         private void btnColor_Click(object sender, EventArgs e)
