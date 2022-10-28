@@ -15,12 +15,28 @@ namespace _06_gyak
     public partial class Form1 : Form
     {
         List<Toy> _toys = new List<Toy>();
+        private Toy _nextToy;
         private IToyFactory _factory;
         public IToyFactory Factory
         {
             get { return _factory; }
-            set { _factory = value; }
+            set 
+            { 
+                _factory = value;
+                DisplayNext();
+            }
         }
+
+        private void DisplayNext()
+        {
+            if (_nextToy != null)
+                Controls.Remove(_nextToy);
+            _nextToy = Factory.CreateNew();
+            _nextToy.Top = label1.Top + label1.Height + 20;
+            _nextToy.Left = label1.Left;
+            Controls.Add(_nextToy);
+        }
+
         public Form1()
         {
             InitializeComponent();
@@ -50,6 +66,16 @@ namespace _06_gyak
             _toys.Add(toy);
             toy.Left = -toy.Left;
             mainPanel.Controls.Add(toy);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Factory = new CarFactory();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Factory = new BallFactory();
         }
     }
 }

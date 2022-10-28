@@ -32,6 +32,9 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.createTimer = new System.Windows.Forms.Timer(this.components);
             this.conveyorTimer = new System.Windows.Forms.Timer(this.components);
+            this.btnCar = new System.Windows.Forms.Button();
+            this.btnBall = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // mainPanel
@@ -40,7 +43,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mainPanel.Location = new System.Drawing.Point(12, 43);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(1086, 319);
+            this.mainPanel.Size = new System.Drawing.Size(1086, 189);
             this.mainPanel.TabIndex = 0;
             // 
             // createTimer
@@ -55,15 +58,48 @@
             this.conveyorTimer.Interval = 10;
             this.conveyorTimer.Tick += new System.EventHandler(this.conveyorTimer_Tick);
             // 
+            // btnCar
+            // 
+            this.btnCar.Location = new System.Drawing.Point(35, 258);
+            this.btnCar.Name = "btnCar";
+            this.btnCar.Size = new System.Drawing.Size(75, 23);
+            this.btnCar.TabIndex = 1;
+            this.btnCar.Text = "CAR";
+            this.btnCar.UseVisualStyleBackColor = true;
+            this.btnCar.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnBall
+            // 
+            this.btnBall.Location = new System.Drawing.Point(204, 257);
+            this.btnBall.Name = "btnBall";
+            this.btnBall.Size = new System.Drawing.Size(75, 23);
+            this.btnBall.TabIndex = 2;
+            this.btnBall.Text = "BALL";
+            this.btnBall.UseVisualStyleBackColor = true;
+            this.btnBall.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(369, 258);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Coming next:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1110, 464);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnBall);
+            this.Controls.Add(this.btnCar);
             this.Controls.Add(this.mainPanel);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -72,6 +108,9 @@
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.Timer createTimer;
         private System.Windows.Forms.Timer conveyorTimer;
+        private System.Windows.Forms.Button btnCar;
+        private System.Windows.Forms.Button btnBall;
+        private System.Windows.Forms.Label label1;
     }
 }
 
