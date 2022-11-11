@@ -26,8 +26,7 @@ namespace _07_VaR
             Ticks = context.Ticks.ToList();
             dataGridView1.DataSource = Ticks;
             CreatePortfolio();
-
-            
+ 
             int intervalum = 30;
             DateTime kezdőDátum = (from x in Ticks select x.TradingDay).Min();
             DateTime záróDátum = new DateTime(2016, 12, 30);
@@ -54,7 +53,6 @@ namespace _07_VaR
             Portfolio.Add(new PortfolioItem() { Index = "ELMU", Volume = 10 });
 
             dataGridView2.DataSource = Portfolio;
-
         }
 
         private decimal GetPortfolioValue(DateTime date)
@@ -76,13 +74,17 @@ namespace _07_VaR
         {
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.InitialDirectory = Application.StartupPath;
+            sfd.DefaultExt = "csv";
+
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8);
-                sw.WriteLine("Időszak", "Nyereség");
+                sw.WriteLine($"{"Időszak"};{"Nyereség"}");
+                int count = 1;
                 foreach (var ny in Nyereségek)
                 {
-                    //sw.WriteLine($"{ny.};{}");
+                    sw.WriteLine($"{count};{ny}");
+                    count++;
                 }
                 sw.Close();
             }
