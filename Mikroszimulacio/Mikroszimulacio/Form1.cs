@@ -24,11 +24,18 @@ namespace Mikroszimulacio
         {
             InitializeComponent();
 
-            Population = GetPopulation(@"C:\Temp\nép.csv");
+            Population = GetPopulation(@"C:\Temp\nép-teszt.csv");
             BirthProbabilities = GetBirthProbabilities(@"C:\Temp\születés.csv");
             DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");
+        }
 
-            for (int year = 2005; year <= 2024; year++)
+        private void Simulation()
+        {
+            richTextBox1.Clear();
+            List<int> Male = new List<int>();
+            List<int> Female = new List<int>();
+            int enddate = (int)numericUpDown1.Value;
+            for (int year = 2005; year <= enddate; year++)
             {
                 for (int i = 0; i < Population.Count; i++)
                 {
@@ -41,10 +48,14 @@ namespace Mikroszimulacio
                 int nbrOfFemales = (from x in Population
                                     where x.Gender == Gender.Female && x.IsAlive
                                     select x).Count();
-                Console.WriteLine(
-                    string.Format("Év:{0} Fiúk:{1} Lányok:{2}", year, nbrOfMales, nbrOfFemales));
-            }
+                Male.Add(nbrOfMales);
+                Female.Add(nbrOfFemales);
 
+                richTextBox1.Text = string.Format("Szimulációs év: {0} \n \t Fiúk: {1} \n \t Lányok: {2}", year, nbrOfMales, nbrOfMales);
+                /*Console.WriteLine(
+                    string.Format("Év:{0} Fiúk:{1} Lányok:{2}", year, nbrOfMales, nbrOfFemales));*/
+            }
+            //DisplayResults();
         }
 
         private void SimStep(int year, Person person)
@@ -139,6 +150,29 @@ namespace Mikroszimulacio
                 }
             }
             return dprobability;
+        }
+
+        private void btn_start_Click(object sender, EventArgs e)
+        {
+            Simulation();
+        }
+
+        private void DisplayResults()
+        {
+            
+            richTextBox1.Text = String.Format("Szimulációs év: {0} \n \t Fiúk: {1} \n \t Lányok: {2}", 1, 2, 3);
+        }
+
+        private void btn_browse_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() != DialogResult.OK)
+                return;
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
